@@ -13,7 +13,7 @@ const CompanysView = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(fetchCompanys())
-       
+
     }, [])
 
     let { companys } = posts;
@@ -24,11 +24,11 @@ console.log("Companies:", companys);
 
   return (
     <div>
-      <h1 className='text-center font-bold text-xl'>Task-1</h1>
+      <h1 className='text-center font-bold text-xl text-gray-700 uppercase mt-5'>Task-1</h1>
       {isLoading && <h3>Loading...</h3>}
       {error && <h3>{error}.</h3>}
-      
-<div class="relative overflow-x-auto px-20 py-20">
+
+<div class="relative overflow-x-auto px-20 py-10">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -63,7 +63,7 @@ console.log("Companies:", companys);
         {dat.id}
         </th>
         <td class="px-6 py-4">
-        
+
         <div className="avatar">
               <div className="mask mask-squircle w-12 h-12">
                 <img src={dat.company_logo_link} alt="Avatar Tailwind CSS Component" />
@@ -88,17 +88,22 @@ console.log("Companies:", companys);
         {dat.city}
         </td>
         </tr>
-           
+
        )}
-          
+
         </tbody>
-        <div className="join py-5 absolute bottom-0 right-0 mr-20">
+
+        
+    </table>
+    <div className='grid justify-items-end'>
+        <div className="join py-5 ">
   <button className="join-item btn btn-active">1</button>
   <button className="join-item btn ">2</button>
   <button className="join-item btn">3</button>
   <button className="join-item btn">4</button>
 </div>
-    </table>
+
+        </div>
 
 
 
@@ -108,4 +113,32 @@ console.log("Companies:", companys);
   )
 }
 export default CompanysView
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
