@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const Items = ({dat}) => {
-    const { company_name ,  } = dat;
+    const { company_name , id, company_phone, company_size_id, address1, city } = dat;
 
 
     
@@ -14,7 +14,34 @@ const Items = ({dat}) => {
 
     return (
         <div>
-            <h1>{company_name}</h1>
+          
+
+<div className="overflow-x-auto">
+  <table className="table table-xs">
+    <thead>
+      <tr>
+        <th>ID</th> 
+        <th>Company Name</th> 
+        <th>Company Phone</th> 
+        <th>Address1</th> 
+        <th>City</th> 
+     
+      </tr>
+    </thead> 
+    <tbody>
+      
+      <tr>
+        <th>{id}</th> 
+        <th>{company_name}</th> 
+        <td>{company_phone} </td> 
+        <td>{address1} </td> 
+        <td>{city}</td> 
+        
+      </tr>
+    </tbody> 
+   
+  </table>
+</div>
 
             
         </div>

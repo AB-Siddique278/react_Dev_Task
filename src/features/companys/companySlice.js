@@ -11,18 +11,6 @@ export const fetchCompanys = createAsyncThunk("posts/fetchCompanys", async () =>
 })
 
 
-// export const fetchCompanys = createAsyncThunk("posts/fetchCompanys", async () =>{
-//     const res = await axios.get("http://139.59.35.127/production/propsoft-api/public/api/get-all-companys");
-//     return res.data
-// })
-
-
-
-
-
-
-
-
 
 
 const companySlice = createSlice({
@@ -56,3 +44,9 @@ const companySlice = createSlice({
     }
 })
 export default companySlice.reducer
+
+
+
+
+
+// companySlice.js

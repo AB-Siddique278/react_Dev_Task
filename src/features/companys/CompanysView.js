@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-
-
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCompanys } from './companySlice';
-import Items from '../../Items';
 
 
 
 const CompanysView = () => {
+
+
+
     const {isLoading, posts, error} = useSelector((state) => state.posts
     );
     const dispatch = useDispatch();
@@ -16,109 +16,96 @@ const CompanysView = () => {
        
     }, [])
 
-
-   
-
-
-
-  
     let { companys } = posts;
 
 // Use the data array directly:
 console.log("Companies:", companys);
 
 
-
-
-    //---------------------------------------------------------------------
- 
-
-
-
-
   return (
     <div>
+      <h1 className='text-center font-bold text-xl'>Task-1</h1>
       {isLoading && <h3>Loading...</h3>}
       {error && <h3>{error}.</h3>}
-      {/* {companys && companys.data.map((dat) => {
-        return 
-      })} */}
+      
+<div class="relative overflow-x-auto px-20 py-20">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Company Logo
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Company Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Company Phone
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Address 1
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Zip Code 
+                </th>
+                <th scope="col" class="px-6 py-3">
+                City
+                </th>
+            </tr>
+        </thead>
+        <tbody>
 
-      <div>
-        {companys && companys.data.map((dat) => <Items dat={dat} key={dat.id} ></Items>)}
-
-
+        {companys && companys.data.map((dat) =>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        {dat.id}
+        </th>
+        <td class="px-6 py-4">
         
-            
-      </div>
+        <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
+                <img src={dat.company_logo_link} alt="Avatar Tailwind CSS Component" />
+              </div>
+
+        </div>
+
+        </td>
+        <td class="px-6 py-4">
+        {dat.company_name}
+        </td>
+        <td class="px-6 py-4">
+        {dat.company_phone}
+        </td>
+        <td class="px-6 py-4">
+        {dat.address1}
+        </td>
+        <td class="px-6 py-4">
+        {dat.zip}
+        </td>
+        <td class="px-6 py-4">
+        {dat.city}
+        </td>
+        </tr>
+           
+       )}
+          
+        </tbody>
+        <div className="join py-5 absolute bottom-0 right-0 mr-20">
+  <button className="join-item btn btn-active">1</button>
+  <button className="join-item btn ">2</button>
+  <button className="join-item btn">3</button>
+  <button className="join-item btn">4</button>
+</div>
+    </table>
+
+
+
+
+</div>
     </div>
   )
 }
-
 export default CompanysView
 
-
-
-
-{/* <article>
-            <h5>{dat.company_name}</h5>
-            <h5>{dat.company_phone}</h5>
-        </article> */}
-
-
-
-
-
-        // "id": 2,
-        // "company_name": "APEX Homes",
-        // "company_phone": "469-299-5537",
-        // "company_size_id": 1,
-        // "address1": "2451 W Grapevine Mills Cir # 1024",
-        // "address2": "Grapevine, TX 76051-2096",
-        // "city": "C",
-        // "country_id": 1,
-        // "state_id": 1,
-        // "time_zone_id": 1,
-        // "zip": "5840",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //     <table class="table-fixed">
-    //     <thead>
-    //       <tr>
-    //         <th>Id</th>
-    //         <th>Company Name</th>
-    //         <th>Company Phone</th>
-    //         <th>Address 1</th>
-    //         <th>City</th>
-    //         <th>Status</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-    //       <tr>
-    //         <td>{dat.id}</td>
-    //         <td>{dat.company_name}</td>
-    //         <td>{dat.address1} </td>
-    //         <td>{dat.city} </td>
-    //         <td>{dat.address1} </td>
-    //       </tr>
-        
-    //     </tbody>
-    //   </table>
